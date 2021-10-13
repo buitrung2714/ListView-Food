@@ -7,82 +7,8 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ứng dụng bé học toán"
-        android:textColor="#f20"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:textSize="35sp"
-        />
-    <EditText
+    <ListView
+        android:id="@+id/listview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nhập số thứ 1:"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="70dp"
-        android:id="@+id/sothu1"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nhập số thứ 2:"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/sothu2"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:layout_gravity="center"
-        android:textSize="50sp"
-        android:textColor="#f20"
-        android:id="@+id/textketqua"
-        />
-    <LinearLayout
-        android:gravity="center"
-        android:padding="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-       <Button
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="+"
-           android:textSize="20sp"
-           android:padding="10dp"
-           android:id="@+id/btnCong"/>
-        <Button
-            android:layout_marginLeft="100dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:textSize="20sp"
-            android:padding="10dp"
-            android:id="@+id/btnTru"/>
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:padding="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="x"
-            android:textSize="20sp"
-            android:padding="10dp"
-            android:id="@+id/btnNhan"/>
-        <Button
-            android:layout_marginLeft="100dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="/"
-            android:textSize="20sp"
-            android:padding="10dp"
-            android:id="@+id/btnChia"/>
-    </LinearLayout>
+        android:layout_height="match_parent"/>
 </LinearLayout>
