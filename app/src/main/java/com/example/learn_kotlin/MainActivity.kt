@@ -2,6 +2,7 @@ package com.example.learn_kotlin
 
 import android.content.Intent
 import android.graphics.Color
+import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,19 +13,40 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val btnXuly = findViewById<Button>(R.id.btnXuly)
 
-        val buttonIntent = findViewById<Button>(R.id.buttonIntent)
+        btnXuly.setOnClickListener {
+            XuLyCongViec().execute()
+        }
+    }
 
-        buttonIntent.setOnClickListener {
-            val intent : Intent = Intent(this, SecondActivity::class.java)
-//            intent.putExtra("data","Tyson Bui") // truyền chuỗi
-//            intent.putExtra("data", 2712) //truyền số
-//            val arrayInt : IntArray = intArrayOf(123,456,789)
-//            intent.putExtra("data", arrayInt)
-            val vehicle : Vehicle = Vehicle("BMW","Black",4)
-            intent.putExtra("data",vehicle)
+   inner class XuLyCongViec : AsyncTask<Void, String, String>(){
+        override fun onPreExecute() {
+            super.onPreExecute()
+            val txtKetqua = findViewById<TextView>(R.id.txtKetqua)
+            Log.d("key", "Bắt đầu công việc")
+            txtKetqua.text = "Bắt đầu công việc \n"
+        }
+        override fun doInBackground(vararg p0: Void?): String {
+            for (cv in 1..3){
+                publishProgress("Xong công việc $cv")
+            }
 
-            startActivity(intent)
+            return "Hoàn thành"
+        }
+
+        override fun onPostExecute(result: String?) {
+            super.onPostExecute(result)
+            val txtKetqua = findViewById<TextView>(R.id.txtKetqua)
+            if (result != null) {
+                Log.d("key", result)
+            }
+            txtKetqua.append(result)
+        }
+
+        override fun onProgressUpdate(vararg values: String?) {
+            Log.d("key", "Xong cv $values")
+            super.onProgressUpdate(*values)
         }
     }
 }
